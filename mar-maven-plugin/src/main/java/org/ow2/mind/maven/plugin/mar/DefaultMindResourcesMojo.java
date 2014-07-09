@@ -42,8 +42,8 @@ import org.apache.maven.project.MavenProjectHelper;
  */
 public class DefaultMindResourcesMojo extends AbstractMojo {
 
-  public static final String[] DEFAULT_INCLUDES = {"**/*.adl", "**/*.itf",
-      "**/*.c", "**/*.h", "**/*.s", "**/*.S"    };
+  public static final String[] DEFAULT_INCLUDES = {"**/*.adl", "**/*.itf", "**/*.idt",
+      "**/*.c", "**/*.h", "**/*.s", "**/*.S", "**/*.asm", "**/*.cpp", "**/*.hpp"};
   public static final String[] DEFAULT_EXCLUDES = {};
 
   /**
