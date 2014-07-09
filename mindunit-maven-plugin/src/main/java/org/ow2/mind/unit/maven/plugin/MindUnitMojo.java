@@ -127,10 +127,13 @@ public class MindUnitMojo extends AbstractMojo {
 			getLog().debug("Test folder: " + testFolder);
 			allOrderedArguments.add(testFolder);
 		} else {
-			if (testFolders == null)
-				throw new RuntimeException(
-						"At least one <testFolder> or <testFolders> tag must be specified.");
-			getLog().debug("Compiling architecture: " + testFolders);
+			if (testFolders == null) {
+				getLog().debug("No test folder specified, using default folder: " + testFolders);
+				testFolder = "src/test/mind";
+				allOrderedArguments.add(testFolder);
+			} else {
+				getLog().debug("Running tests using folders: " + testFolders);
+			
 			/* the first argument is the ADL to be compiled */
 			for (Object folderName : testFolders) {
 				if (!(folderName instanceof TestFolder)) {
@@ -141,6 +144,7 @@ public class MindUnitMojo extends AbstractMojo {
 									+ "  </testFolders>");
 				}
 				allOrderedArguments.add(testFolder.toString());
+			}
 			}
 		}
 
